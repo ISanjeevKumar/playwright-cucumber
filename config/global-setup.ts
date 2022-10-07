@@ -8,7 +8,7 @@ let context: BrowserContext;
 let sauceApp: SauceApp;
 
 Before(async () => {
-  browser = await chromium.launch({ headless: false });
+  browser = await chromium.launch({ headless: true });
   context = await browser.newContext();
   page = await context.newPage();
   sauceApp = await new SauceApp(page);
