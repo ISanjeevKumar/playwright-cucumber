@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "cucumber-js features/*.feature  --require step-defs/*.ts --require-module ts-node/register"
+    "test": "npx cucumber-js  -p runner"
   },
   "keywords": [],
   "author": "",
