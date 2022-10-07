@@ -6,8 +6,14 @@
   "scripts": {
     "test": "cucumber-js  -p runner && node reporter-config.ts"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": [
+    "cucumber",
+    "playwright",
+    "playwright automation",
+    "test automation",
+    "TypeScript"
+  ],
+  "author": "Sanjeev Kumar",
   "license": "ISC",
   "devDependencies": {
     "@playwright/test": "^1.26.1",

@@ -18,10 +18,6 @@ let sauceApp: SauceApp;
 
 setDefaultTimeout(60000);
 
-BeforeAll(async () => {
-  // await fse.remove("test-report");
-});
-
 Before(async () => {
   browser = await chromium.launch({ headless: true });
   context = await browser.newContext();

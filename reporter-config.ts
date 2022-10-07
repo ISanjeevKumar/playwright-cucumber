@@ -8,11 +8,6 @@ var options = {
   storeScreenshots: true,
   reportSuiteAsScenarios: true,
   scenarioTimestamp: true,
-  launchReport: true,
-  metadata: {
-    Platform: "Mac",
-    Parallel: "Scenarios",
-    Executed: "Remote",
-  },
+  launchReport: false,
 };
 reporter.generate(options);
