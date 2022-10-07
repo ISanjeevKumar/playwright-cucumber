@@ -6,7 +6,7 @@ Page object model design pattern for Playwright cucumber sample tests.
 
 ### Pre-requisite
 
-- [x]  You will need to create a folder, then the package.json file will be created using the following commands:
+- [x] Create a folder, then create the Node.js project using the following commands:
 
 ```
 npm init
