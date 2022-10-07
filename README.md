@@ -1,4 +1,4 @@
-# playwright-cucumber
+# playwright-cucumber[![Playwright Tests](https://github.com/ISanjeevKumar/playwright-cucumber/actions/workflows/playwright.yml/badge.svg)](https://github.com/ISanjeevKumar/playwright-cucumber/actions/workflows/playwright.yml)
 
 Page object model design pattern for Playwright cucumber sample tests.
 
