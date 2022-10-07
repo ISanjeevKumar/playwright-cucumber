@@ -77,7 +77,7 @@ After(async () => {
 export { page };
 ```
 
-## Feature file example
+### Add Feature file as shown in below example:
 
 ```gherkin
 Feature: Login feature
@@ -93,7 +93,7 @@ Feature: Login feature
         Then I will be navigated to home page
 ```
 
-## Step defs class example
+### Add Step defs class for feature file like below:
 
 ```ts
 import { Given, When, Then } from "@cucumber/cucumber";
