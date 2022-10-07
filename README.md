@@ -171,7 +171,7 @@ export class SauceApp {
 Now we need to create an instance of this app class in test layer to access page objects.
 
 ```ts
-import { After, Before, setWorldConstructor, World } from "@cucumber/cucumber";
+import { After, Before } from "@cucumber/cucumber";
 import { Page, Browser, chromium, BrowserContext } from "@playwright/test";
 import { SauceApp } from "../page-objects/sauce-demo/SauceApp";
 
