@@ -295,3 +295,4 @@ JSON files can be converted into beautiful HTML reports with the help of reporte
 ### Framework Capabilities
 
 - [x] Page object model design pattern
+- [x] Cucumber HTML report
