@@ -244,7 +244,7 @@ Then("I will be navigated to home page", async function () {
 Install cucumber-html-reporter using below command:
 
 ```
-cucumber-html-reporter
+npm install cucumber-html-reporter
 ```
 
 Then create a Typescript file and add below information in it:
