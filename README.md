@@ -2,7 +2,7 @@
 
 Page object model design pattern for Playwright cucumber sample tests.
 
-## step by step details for Playwright cucumber
+## step-by-step guide to getting started with Playwright cucumber
 
 ### Pre-requisite
 
