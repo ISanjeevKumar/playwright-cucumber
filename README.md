@@ -239,6 +239,58 @@ Then("I will be navigated to home page", async function () {
 });
 ```
 
+### How to generate report
+
+Install cucumber-html-reporter using below command:
+
+```
+cucumber-html-reporter
+```
+
+Then create a Typescript file and add below information in it:
+
+```ts
+var reporter = require("cucumber-html-reporter");
+
+var options = {
+  theme: "bootstrap",
+  jsonFile: "test-report/cucumber_report.json",
+  output: "test-report/cucumber_report.html",
+  screenshotsDirectory: "test-report/assets/",
+  storeScreenshots: true,
+  reportSuiteAsScenarios: true,
+  scenarioTimestamp: true,
+  launchReport: true,
+  metadata: {
+    Platform: "Mac",
+    Parallel: "Scenarios",
+    Executed: "Remote",
+  },
+};
+reporter.generate(options);
+```
+
+Now we need to add entry for creating json file for each test run
+
+```ts
+const options = [
+  "--require-module ts-node/register",
+  "--require step-defs/*.ts",
+  "-f json:test-report/cucumber_report.json", // for json report
+].join(" ");
+```
+
+Now add the below command in test scripts to run this node js file
+
+```
+Node reporter-config.ts
+```
+
+JSON files can be converted into beautiful HTML reports with the help of reporter-config
+
+HTML report sample:
+![Screenshot](html-report-sample.png)
+
 ### Framework Capabilities
 
 - [x] Page object model design pattern
