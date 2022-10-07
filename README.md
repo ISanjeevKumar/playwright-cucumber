@@ -288,7 +288,8 @@ Node reporter-config.ts
 
 JSON files can be converted into beautiful HTML reports with the help of reporter-config
 
-HTML report sample:
+#### HTML report sample:
+
 ![Screenshot](html-report-sample.png)
 
 ### Framework Capabilities
