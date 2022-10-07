@@ -210,3 +210,7 @@ Then("I will be navigated to home page", async function () {
   await sauceApp.LoginPage.isUserLoggedIn();
 });
 ```
+
+### Framework Capabilities
+
+- [x] Page object model design pattern
