@@ -119,3 +119,94 @@ Then("I will be navigated to home page", async function () {
   await expect(this.page).toHaveTitle("Swag Labs");
 });
 ```
+
+## How to use page objects desing pattern in Playwright cucumber
+
+Create page class as shown in below example of LoginPage:
+
+```ts
+import { expect, Page } from "@playwright/test";
+
+export class LoginPage {
+  protected readonly page: Page;
+
+  constructor(page: Page) {
+    this.page = page;
+  }
+
+  public async enterUsername(username: string) {
+    await this.page.locator("#user-name").fill(username);
+  }
+
+  public async enterPassword(password: string) {
+    await this.page.locator("#password").fill(password);
+  }
+
+  public async clickOnLogin() {
+    await this.page.locator("#login-button").click();
+  }
+
+  public async isUserLoggedIn() {
+    await expect(this.page).toHaveTitle("Swag Labs");
+  }
+}
+```
+
+All the page objects will be provided to you by app class as shown in below example:
+
+```ts
+export class SauceApp {
+  protected readonly page: Page;
+
+  constructor(page: Page) {
+    this.page = page;
+  }
+
+  public get LoginPage(): LoginPage {
+    return new LoginPage(this.page);
+  }
+}
+```
+
+Now we need to create an instance of this app class in test layer to access page objects.
+
+```ts
+import { After, Before, setWorldConstructor, World } from "@cucumber/cucumber";
+import { Page, Browser, chromium, BrowserContext } from "@playwright/test";
+import { SauceApp } from "../page-objects/sauce-demo/SauceApp";
+
+Before(async () => {
+  browser = await chromium.launch({ headless: false });
+  context = await browser.newContext();
+  page = await context.newPage();
+  sauceApp = await new SauceApp(page);
+});
+export { page, sauceApp };
+```
+
+In step defs class , we can access sauceApp instance like this:
+
+```ts
+import { Given, When, Then } from "@cucumber/cucumber";
+import { page, sauceApp } from "../config/global-setup";
+
+Given("I navigate to login page", async function () {
+  await page.goto("https://www.saucedemo.com/");
+});
+
+Given("I enter username {string}", async function (username) {
+  await sauceApp.LoginPage.enterUsername(username);
+});
+
+Given("I enter password {string}", async function (password) {
+  await sauceApp.LoginPage.enterPassword(password);
+});
+
+When("I click login button", async function () {
+  await sauceApp.LoginPage.clickOnLogin();
+});
+
+Then("I will be navigated to home page", async function () {
+  await sauceApp.LoginPage.isUserLoggedIn();
+});
+```
