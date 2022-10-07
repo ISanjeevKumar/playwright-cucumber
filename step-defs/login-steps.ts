@@ -1,23 +1,22 @@
 import { Given, When, Then } from "@cucumber/cucumber";
-import { expect } from "@playwright/test";
-import { page } from "../config/global-setup";
+import { page, sauceApp } from "../config/global-setup";
 
 Given("I navigate to login page", async function () {
   await page.goto("https://www.saucedemo.com/");
 });
 
 Given("I enter username {string}", async function (username) {
-  await page.locator("#user-name").fill(username);
+  await sauceApp.LoginPage.enterUsername(username);
 });
 
 Given("I enter password {string}", async function (password) {
-  await page.locator("#password").fill(password);
+  await sauceApp.LoginPage.enterPassword(password);
 });
 
 When("I click login button", async function () {
-  await page.locator("#login-button").click();
+  await sauceApp.LoginPage.clickOnLogin();
 });
 
 Then("I will be navigated to home page", async function () {
-  await expect(page).toHaveTitle("Swag Labs");
+  await sauceApp.LoginPage.isUserLoggedIn();
 });

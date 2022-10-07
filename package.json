@@ -10,7 +10,8 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "@playwright/test": "^1.26.1"
+    "@playwright/test": "^1.26.1",
+    "eslint-plugin-playwright": "^0.11.2"
   },
   "dependencies": {
     "@cucumber/cucumber": "^8.6.0",
