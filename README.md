@@ -294,3 +294,4 @@ HTML report sample:
 ### Framework Capabilities
 
 - [x] Page object model design pattern
+- [x] Cucumber HTML report
