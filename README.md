@@ -50,6 +50,34 @@ Then execute the test with below command:
 npm run test
 ```
 
+or
+
+Add the additional require information in cucumber.js file
+
+```js
+const options = [
+  "--require-module ts-node/register", // to load typescript module
+  "--require step-defs/*.ts", // load step defs classes
+].join(" ");
+
+let runsettings = [
+  "features/*.feature", // feature files path
+  options,
+].join(" ");
+
+module.exports = {
+  runner: runsettings,
+};
+```
+
+Then use below command to run your cucumber test scripts:
+
+```
+npx cucumber-js  -p runner
+```
+
+Note - you can use any of these approaches to run your test scripts
+
 ## How to write tests
 
 Create global config to create and close browser for each test
