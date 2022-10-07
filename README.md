@@ -296,3 +296,4 @@ JSON files can be converted into beautiful HTML reports with the help of reporte
 
 - [x] Page object model design pattern
 - [x] Cucumber HTML report
+- [x] Retry failure test
