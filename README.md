@@ -1,6 +1,14 @@
 # playwright-cucumber[![Playwright Tests](https://github.com/ISanjeevKumar/playwright-cucumber/actions/workflows/playwright.yml/badge.svg)](https://github.com/ISanjeevKumar/playwright-cucumber/actions/workflows/playwright.yml)
 
-Page object model design pattern for Playwright cucumber sample tests.
+Playwright cucumber sample tests with Page object model design pattern.
+
+### Framework Capabilities
+
+- [x] Page object model design pattern
+- [x] Cucumber HTML report
+- [x] Retry failure test
+- [x] Parallel execution
+- [x] Cross browser tests
 
 ## step-by-step guide to getting started with Playwright cucumber
 
@@ -292,10 +300,4 @@ JSON files can be converted into beautiful HTML reports with the help of reporte
 
 ![Screenshot](html-report-sample.png)
 
-### Framework Capabilities
 
-- [x] Page object model design pattern
-- [x] Cucumber HTML report
-- [x] Retry failure test
-- [x] Parallel execution
-- [x] Cross browser tests
