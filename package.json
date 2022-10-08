@@ -4,7 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "cucumber-js  -p runner && node reporter-config.ts"
+    "test": "cucumber-js  -p runner && node reporter-config.ts",
+    "test:parallel": "cucumber-js  -p runner --parallel=2 && node reporter-config.ts",
+    "test:firefox": "BROWSER=firefox cucumber-js  -p runner && node reporter-config.ts"
   },
   "keywords": [
     "cucumber",

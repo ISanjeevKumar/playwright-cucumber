@@ -2,14 +2,18 @@ import {
   After,
   AfterStep,
   Before,
-  BeforeAll,
   setDefaultTimeout,
-  setWorldConstructor,
-  World,
 } from "@cucumber/cucumber";
-import { Page, Browser, chromium, BrowserContext } from "@playwright/test";
+import {
+  Page,
+  Browser,
+  chromium,
+  BrowserContext,
+  firefox,
+  webkit,
+} from "@playwright/test";
 import { SauceApp } from "../page-objects/sauce-demo/SauceApp";
-const fse = require("fs-extra");
+import { config } from "./runsetting-config";
 
 let page: Page;
 let browser: Browser;
@@ -19,7 +23,16 @@ let sauceApp: SauceApp;
 setDefaultTimeout(60000);
 
 Before(async () => {
-  browser = await chromium.launch({ headless: true });
+  switch (config.browser) {
+    case "firefox":
+      browser = await firefox.launch(config.browserOptions);
+      break;
+    case "webkit":
+      browser = await webkit.launch(config.browserOptions);
+      break;
+    default:
+      browser = await chromium.launch(config.browserOptions);
+  }
   context = await browser.newContext();
   page = await context.newPage();
   sauceApp = await new SauceApp(page);
