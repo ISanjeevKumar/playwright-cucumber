@@ -61,7 +61,7 @@ npm run test
 
 or
 
-Add the additional information in cucumber.js file instead of adding this in test scripts
+Instead of adding this additional parameters to test scripts, add it to cucumber.js
 
 ```js
 const options = [
