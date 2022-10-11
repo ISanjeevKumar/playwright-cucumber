@@ -3,6 +3,8 @@ import {
   AfterStep,
   Before,
   setDefaultTimeout,
+  Status,
+  World,
 } from "@cucumber/cucumber";
 import {
   Page,
@@ -38,13 +40,12 @@ Before(async () => {
   sauceApp = await new SauceApp(page);
 });
 
-After(async () => {
+After(async function (this: World, scenario) {
+  if (scenario.result?.status === Status.FAILED) {
+    const screenShot = await page.screenshot();
+    await this.attach(screenShot, "image/png");
+  }
   await context.close();
   await browser.close();
 });
-
-AfterStep(async ({ result }) => {
-  console.log("Result of executed step:", result.status);
-});
-
 export { page, sauceApp };

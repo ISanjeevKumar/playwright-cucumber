@@ -9,6 +9,7 @@ Playwright cucumber sample tests with Page object model design pattern.
 - [x] Retry failure test
 - [x] Parallel execution
 - [x] Cross browser tests
+- [x] Screenshot attached in case of failure
 
 ## step-by-step guide to getting started with Playwright cucumber
 
@@ -299,5 +300,3 @@ JSON files can be converted into beautiful HTML reports with the help of reporte
 #### HTML report sample:
 
 ![Screenshot](html-report-sample.png)
-
-
